@@ -999,10 +999,13 @@ static NSString *const iVersionMacAppStoreURLFormat = @"macappstore://itunes.app
         //get root view controller
         UIViewController *rootViewController = nil;
         id appDelegate = [[UIApplication sharedApplication] delegate];
-        if ([appDelegate respondsToSelector:@selector(viewController)])
-        {
-            rootViewController = [appDelegate valueForKey:@"viewController"];
-        }
+
+        // Comment the code where it cause AppStore validation warning
+//        if ([appDelegate respondsToSelector:@selector(viewController)])
+//        {
+//            rootViewController = [appDelegate valueForKey:@"viewController"];
+//        }
+
         if (!rootViewController && [appDelegate respondsToSelector:@selector(window)])
         {
             UIWindow *window = [appDelegate valueForKey:@"window"];
